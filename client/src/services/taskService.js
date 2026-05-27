@@ -2,8 +2,6 @@ import axios from "axios";
 
 const API = import.meta.env.VITE_API_URL;
 
-axios.get(`${API}/api/tasks`);
-
 export const getTasks = async (token) => {
   const config = {
     headers: {
@@ -12,17 +10,14 @@ export const getTasks = async (token) => {
   };
 
   const response = await axios.get(
-    API_URL,
+    `${API}/api/tasks`,
     config
   );
 
   return response.data;
 };
 
-export const createTask = async (
-  taskData,
-  token
-) => {
+export const createTask = async (taskData, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -30,7 +25,7 @@ export const createTask = async (
   };
 
   const response = await axios.post(
-    API_URL,
+    `${API}/api/tasks`,
     taskData,
     config
   );
@@ -38,10 +33,7 @@ export const createTask = async (
   return response.data;
 };
 
-export const deleteTask = async (
-  taskId,
-  token
-) => {
+export const deleteTask = async (taskId, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -49,18 +41,14 @@ export const deleteTask = async (
   };
 
   const response = await axios.delete(
-    `${API_URL}/${taskId}`,
+    `${API}/api/tasks/${taskId}`,
     config
   );
 
   return response.data;
 };
 
-export const updateTask = async (
-  taskId,
-  updatedData,
-  token
-) => {
+export const updateTask = async (taskId, updatedData, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -68,7 +56,7 @@ export const updateTask = async (
   };
 
   const response = await axios.put(
-    `${API_URL}/${taskId}`,
+    `${API}/api/tasks/${taskId}`,
     updatedData,
     config
   );
