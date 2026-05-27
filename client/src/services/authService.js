@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/auth";
+const API = import.meta.env.VITE_API_URL;
+
+axios.get(`${API}/api/tasks`);
 
 export const loginUser = async (userData) => {
   const response = await axios.post(
