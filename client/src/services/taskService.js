@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API = import.meta.env.VITE_API_URL;
-
+import { BASE_URL } from "../config/api";
 export const getTasks = async (token) => {
   const config = {
     headers: {
@@ -10,7 +9,7 @@ export const getTasks = async (token) => {
   };
 
   const response = await axios.get(
-    `${API}/api/tasks`,
+    `${BASE_URL}/api/tasks`,
     config
   );
 
@@ -25,7 +24,7 @@ export const createTask = async (taskData, token) => {
   };
 
   const response = await axios.post(
-    `${API}/api/tasks`,
+    `${BASE_URL}/api/tasks`,
     taskData,
     config
   );
@@ -41,7 +40,7 @@ export const deleteTask = async (taskId, token) => {
   };
 
   const response = await axios.delete(
-    `${API}/api/tasks/${taskId}`,
+    `${BASE_URL}/api/tasks/${taskId}`,
     config
   );
 
@@ -56,7 +55,7 @@ export const updateTask = async (taskId, updatedData, token) => {
   };
 
   const response = await axios.put(
-    `${API}/api/tasks/${taskId}`,
+    `${BASE_URL}/api/tasks/${taskId}`,
     updatedData,
     config
   );
